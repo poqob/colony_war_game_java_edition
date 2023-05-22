@@ -1,23 +1,26 @@
 package colony;
 
+import Symbols.Symbols;
 import constants.Constants;
 import manufacture.AManufacture;
 import strategy.AStrategy;
 
 public class Colony {
 	// fields
-	int foodStock;
-	int population;
-	boolean amIALive;
-	char symbol;
-	int victory;
-	int loose;
+	public int foodStock;
+	public int population;
+	public boolean amIALive;
+	public String symbol;
+	public int victory;
+	public int loose;
 	AManufacture manufacture;
 	AStrategy strategy;
 
-	Colony(int population, char symbol, AStrategy strategy, AManufacture manufacture) {
+	// Constructor
+	public Colony(int population, AStrategy strategy, AManufacture manufacture) {
+		this.population = population;
 		this.amIALive = population == 0 ? false : true;
-		this.symbol = symbol;
+		this.symbol = Symbols.pickASymbol();
 		this.foodStock = population * population;
 		this.victory = 0;
 		this.loose = 0;
@@ -26,8 +29,7 @@ public class Colony {
 	}
 
 	// methods
-
-	void grow() {
+	public void grow() {
 		// controlling population, if the population is under 0 set colony is dead.
 		if (population <= 0) {
 			this.amIALive = false;
@@ -50,9 +52,17 @@ public class Colony {
 		}
 	}
 
+	public int fightPower() {
+		return strategy.fight();
+	}
+
+	public int producePower() {
+		return manufacture.produce();
+	}
+
 	// controlls the colony's life status, GameManager calls it after every single
 	// combat.
-	void reportLifeStatus() {
+	public void reportLifeStatus() {
 		// controlling if food stock is under level zero.
 		if (foodStock <= 0 || population <= 0) {
 			amIALive = false;
@@ -60,9 +70,6 @@ public class Colony {
 	}
 
 	public String toString() {
-		String output;
-		output = "\n***************************\n";
-
 		return "Colony";
 	}
 }

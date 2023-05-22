@@ -8,11 +8,11 @@ public class Log {
 	int foodStock;
 	int population;
 	boolean amIALive;
-	char symbol;
+	String symbol;
 	int victory;
 	int loose;
 
-	Log(Colony colony) {
+	public Log(Colony colony) {
 		foodStock = colony.foodStock;
 		population = colony.population;
 		amIALive = colony.amIALive;
