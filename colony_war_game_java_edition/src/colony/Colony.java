@@ -1,6 +1,5 @@
 package colony;
 
-import Symbols.Symbols;
 import constants.Constants;
 import manufacture.AManufacture;
 import strategy.AStrategy;
@@ -17,10 +16,10 @@ public class Colony {
 	AStrategy strategy;
 
 	// Constructor
-	public Colony(int population, AStrategy strategy, AManufacture manufacture) {
+	public Colony(String symbol, int population, AStrategy strategy, AManufacture manufacture) {
 		this.population = population;
 		this.amIALive = population == 0 ? false : true;
-		this.symbol = Symbols.pickASymbol();
+		this.symbol = symbol;
 		this.foodStock = population * population;
 		this.victory = 0;
 		this.loose = 0;
@@ -52,11 +51,11 @@ public class Colony {
 		}
 	}
 
-	public int fightPower() {
+	public int fight() {
 		return strategy.fight();
 	}
 
-	public int producePower() {
+	public int produce() {
 		return manufacture.produce();
 	}
 
