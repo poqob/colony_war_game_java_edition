@@ -1,16 +1,26 @@
 
-import colony.Colony;
-import log.Log;
-import manufacture.Manufacture0;
-import strategy.Strategy0;
+import java.util.ArrayList;
+
+import game.Game;
+import gameManager.GameManager;
+import ui.Ui;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		Colony c = new Colony(30, new Strategy0(), new Manufacture0());
-		Log log = new Log(c);
-		System.out.println(log.toString());
+		ArrayList<Integer> populations = new ArrayList<Integer>();
+		populations.add(50);
+		populations.add(150);
+		populations.add(200);
+
+		GameManager gm = new GameManager(populations);
+		Game game = new Game(gm);
+		game.play();
+		Ui.showLogs(gm.toursLogPack);
+
+		System.out.print("EXIT SUCCESFULLY");
+
 	}
 
 }
