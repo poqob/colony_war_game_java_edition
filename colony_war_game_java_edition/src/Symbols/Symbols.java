@@ -1,18 +1,18 @@
 package Symbols;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Random;
 
 public class Symbols {
 
-	private static ArrayList<String> allSymbols;
+	private static LinkedList<String> allSymbols;
 
 	private static void createSymbols() {
 		int num = 0x2600; // Unicode code point for the first symbol
 		String temp;
 
 		if (allSymbols == null)
-			allSymbols = new ArrayList<String>();
+			allSymbols = new LinkedList<String>();
 
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
