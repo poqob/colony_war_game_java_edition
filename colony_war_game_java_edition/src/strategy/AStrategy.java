@@ -1,5 +1,5 @@
 package strategy;
 
 public abstract class AStrategy {
-	abstract int fight();
+	public abstract int fight();
 }

@@ -5,7 +5,7 @@ public class Manufacture1 extends AManufacture {
 	final int producePower = 8;
 
 	@Override
-	int produce() {
+	public int produce() {
 
 		return producePower;
 	}

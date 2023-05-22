@@ -1,5 +1,5 @@
 package manufacture;
 
 public abstract class AManufacture {
-	abstract int produce();
+	public abstract int produce();
 }

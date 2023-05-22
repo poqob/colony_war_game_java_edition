@@ -5,7 +5,7 @@ public class Strategy1 extends AStrategy {
 	final int fightPower = 600;
 
 	@Override
-	int fight() {
+	public int fight() {
 		return 0;
 	}
 
