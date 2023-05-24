@@ -25,22 +25,22 @@ public class Log {
 		String res = "";
 
 		res += symbol;
-		res += " ".repeat(Constants.SPACING - 4);
+		res += " ".repeat(Constants.SPACING - symbol.length());
 		if (amIALive == true) {
 			res += population;
-			res += " ".repeat(Constants.SPACING - 2 + 2);
+			res += " ".repeat(Constants.SPACING - Integer.toString(population).length() + 2);
 			res += foodStock;
-			res += " ".repeat(Constants.SPACING - 2);
+			res += " ".repeat(Constants.SPACING - Integer.toString(foodStock).length());
 			res += victory;
-			res += " ".repeat(8 - 2);
+			res += " ".repeat(8 - Integer.toString(victory).length() - 2);
 			res += loose;
 		} else {
 			res += "--";
-			res += " ".repeat(Constants.SPACING - 2 + 2);
+			res += " ".repeat(Constants.SPACING);
 			res += "--";
 			res += " ".repeat(Constants.SPACING - 2);
 			res += "--";
-			res += " ".repeat(8 - 2);
+			res += " ".repeat(8 - 4);
 			res += "--";
 		}
 
