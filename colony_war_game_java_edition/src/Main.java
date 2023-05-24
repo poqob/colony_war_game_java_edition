@@ -1,26 +1,19 @@
 
-import java.util.ArrayList;
-
 import game.Game;
 import gameManager.GameManager;
+import input.InputManager;
 import ui.Ui;
 
 public class Main {
 
 	public static void main(String[] args) {
-
-		ArrayList<Integer> populations = new ArrayList<Integer>();
-		populations.add(50);
-		populations.add(150);
-		populations.add(200);
-
-		GameManager gm = new GameManager(populations);
+		InputManager manager = new InputManager();
+		manager.startInput();
+		GameManager gm = new GameManager(manager.getNumbers());
 		Game game = new Game(gm);
 		game.play();
 		Ui.showLogs(gm.toursLogPack);
-
-		System.out.print("EXIT SUCCESFULLY");
-
+		game.showWinner();
 	}
 
 }
