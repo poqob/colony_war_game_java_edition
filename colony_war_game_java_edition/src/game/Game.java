@@ -11,10 +11,10 @@ public class Game {
 		this.gm = gm;
 	}
 
-// methods
+	// methods
 	public void play() {
 
-		while (gm.goodToGo() == true) {
+		while (gm.goodToGo()) {
 
 			gm.totalWarCount += gm.calculatePossibleWarCountPerRound();
 			gm.tour++;// increase tour count
@@ -24,6 +24,10 @@ public class Game {
 
 		}
 		gm.logger();
+	}
+
+	public void showWinner() {
+		System.out.println("Winner is: " + gm.getWinner().symbol);
 	}
 
 	public String inspect() {
