@@ -20,7 +20,7 @@ public class Symbols {
 				allSymbols.add(temp);
 				num += 10;
 			}
-			num = 0x2600 + i + 1;
+			num = 0x2A00 + i + 1;
 		}
 	}
 
