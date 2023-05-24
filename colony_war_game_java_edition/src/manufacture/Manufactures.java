@@ -1,5 +1,8 @@
 package manufacture;
 
+/**
+ * Enum Manufactures represents a collection of available manufacturing options.
+ */
 public enum Manufactures {
-	manufacture0, manufacture1, manufacture2,
+	MANUFACTURE0, MANUFACTURE1, MANUFACTURE2,
 }

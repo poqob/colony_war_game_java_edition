@@ -53,6 +53,12 @@ public class GameManager {
 		this.toursLogPack.add(logs);
 	}
 
+	/**
+	 * Calculates the possible war count per round based on the number of alive
+	 * players.
+	 * 
+	 * @return The calculated possible war count.
+	 */
 	int PWC = 0;
 
 	public Integer calculatePossibleWarCountPerRound() {
@@ -70,10 +76,12 @@ public class GameManager {
 			return (tmp / 2) * tmp;
 	}
 
+	// is there more than 0 war controll.
 	public Boolean goodToGo() {
 		return (calculatePossibleWarCountPerRound() > 0) ? true : false;
 	}
 
+	// returns last alive colony
 	public Colony getWinner() {
 		Colony winner = null;
 		for (Colony colony : players) {
@@ -206,7 +214,6 @@ public class GameManager {
 				}
 			}
 		}
-		// System.out.println(c1.fightPower() - c0.fightPower());
 		c0.reportLifeStatus();
 		c1.reportLifeStatus();
 		this.players.set(i, c0);

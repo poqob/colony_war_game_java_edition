@@ -12,6 +12,13 @@ public class Game {
 	}
 
 	// methods
+
+	/**
+	 * Executes the game by running the main game loop until the game is over. In
+	 * each iteration of the loop, it performs the necessary game actions, such as
+	 * calculating the possible war count, increasing the tour count, logging the
+	 * game information, conducting battles, and growing the colonies.
+	 */
 	public void play() {
 
 		while (gm.goodToGo()) {
@@ -26,6 +33,7 @@ public class Game {
 		gm.logger();
 	}
 
+	// prints winner to console
 	public void showWinner() {
 		System.out.println("Winner is: " + gm.getWinner().symbol);
 	}

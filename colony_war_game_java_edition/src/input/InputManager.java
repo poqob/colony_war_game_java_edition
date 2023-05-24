@@ -10,6 +10,12 @@ public class InputManager {
 		numbers = new ArrayList<>();
 	}
 
+	/**
+	 * Starts the input process by reading numeric inputs from the console. Numeric
+	 * inputs should be entered with one character spacing (e.g., 1 2 3). The input
+	 * process can be terminated by entering 'q'. Invalid inputs will display an
+	 * error message.
+	 */
 	public void startInput() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter numeric inputs with one character spacing (e.g., 1 2 3), enter 'q' to quit:");
@@ -32,6 +38,11 @@ public class InputManager {
 		scanner.close();
 	}
 
+	/**
+	 * Returns the list of parsed numbers.
+	 *
+	 * @return The list of parsed numbers.
+	 */
 	public ArrayList<Integer> getNumbers() {
 		return numbers;
 	}

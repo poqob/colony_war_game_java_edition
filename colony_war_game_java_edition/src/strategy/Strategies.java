@@ -1,5 +1,8 @@
 package strategy;
 
+/**
+ * Strategies is an enumeration representing different strategies.
+ */
 public enum Strategies {
-	strategy0, strategy1, strategy2
+	STRATEGY0, STRATEGY1, STRATEGY2
 }

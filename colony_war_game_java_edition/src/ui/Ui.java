@@ -7,6 +7,11 @@ import log.Log;
 public class Ui {
 	private static String divider = "\n-------------------------------------------------------";
 
+	/**
+	 * Displays the logs in a formatted manner.
+	 * 
+	 * @param listOfLogsList The list of logs(list of log per tour) to be displayed.
+	 */
 	public static void showLogs(ArrayList<ArrayList<Log>> listOfLogsList) {
 		String res = "";
 		ArrayList<Log> logs;

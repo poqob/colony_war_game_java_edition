@@ -47,10 +47,12 @@ public class Colony {
 		reportLifeStatus();
 	}
 
+	// fight power
 	public int fight() {
 		return strategy.fight();
 	}
 
+	// produce power
 	public int produce() {
 		return manufacture.produce();
 	}

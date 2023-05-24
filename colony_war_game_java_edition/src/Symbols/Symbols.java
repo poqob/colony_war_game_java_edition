@@ -3,10 +3,16 @@ package Symbols;
 import java.util.LinkedList;
 import java.util.Random;
 
+/**
+ * Symbols is a utility class for managing and picking symbols.
+ */
 public class Symbols {
 
 	private static LinkedList<String> allSymbols;
 
+	/**
+	 * Creates a list of symbols and populates the allSymbols LinkedList.
+	 */
 	private static void createSymbols() {
 		int num = 0x2600; // Unicode code point for the first symbol
 		String temp;
@@ -24,6 +30,11 @@ public class Symbols {
 		}
 	}
 
+	/**
+	 * Picks a symbol randomly from the available symbols.
+	 *
+	 * @return String - the picked symbol
+	 */
 	public static String pickASymbol() {
 		if (allSymbols == null || allSymbols.isEmpty())
 			createSymbols();

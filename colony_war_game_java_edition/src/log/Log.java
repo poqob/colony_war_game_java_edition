@@ -12,6 +12,7 @@ public class Log {
 	int victory;
 	int loose;
 
+	// constructor
 	public Log(Colony colony) {
 		foodStock = colony.foodStock;
 		population = colony.population;
@@ -21,6 +22,7 @@ public class Log {
 		loose = colony.loose;
 	}
 
+	// to string method
 	public String toString() {
 		String res = "";
 
