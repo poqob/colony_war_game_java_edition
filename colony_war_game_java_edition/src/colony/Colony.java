@@ -44,11 +44,7 @@ public class Colony {
 		// produce according to updated population.
 		foodStock += manufacture.produce();
 
-		// controlling if food stock is under level zero.
-		if (population <= 0) {
-			this.amIALive = false;
-			return;
-		}
+		reportLifeStatus();
 	}
 
 	public int fight() {
