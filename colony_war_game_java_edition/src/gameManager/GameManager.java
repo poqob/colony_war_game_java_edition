@@ -50,7 +50,7 @@ public class GameManager {
 			log = new Log(players.get(i));
 			logs.add(log);
 		}
-		toursLogPack.add(logs);
+		this.toursLogPack.add(logs);
 	}
 
 	int PWC = 0;
@@ -71,14 +71,22 @@ public class GameManager {
 	}
 
 	public Boolean goodToGo() {
-		return (calculatePossibleWarCountPerRound() != 0) ? true : false;
+		return (calculatePossibleWarCountPerRound() > 0) ? true : false;
+	}
+
+	public Colony getWinner() {
+		Colony winner = null;
+		for (Colony colony : players) {
+			if (colony.amIALive == true)
+				winner = colony;
+		}
+		return winner;
 	}
 
 	// colonies grow method
 	public void growOrganizer() {
-		for (int i = 0; i < players.size(); i++) {
-			players.get(i).grow();
-		}
+		for (Colony colony : players)
+			colony.grow();
 	}
 
 	// colonies battle method
@@ -112,10 +120,12 @@ public class GameManager {
 		}
 	}
 
-	@Todo("NOT pass by refferance, change alghorithm c0 and c1 is not one that in players list!!!")
 	// combat-fight function
 	private void versus(Colony c0, Colony c1) {
-		float ratio;
+		int i, j;
+		i = this.players.indexOf(c0);
+		j = this.players.indexOf(c1);
+		float ratio = 0f;
 
 		// c0 winner situation
 		if (c0.fight() > c1.fight()) {
@@ -144,7 +154,8 @@ public class GameManager {
 		{
 			// compare population scales.
 			if (c0.population > c1.population) {
-				ratio = (float) (c0.produce() - c1.produce()) / Constants.INDEX;
+				ratio = (float) (c1.produce() - c0.produce()) / Constants.INDEX;
+				ratio = Math.abs(ratio);
 				c1.population -= c1.population * ratio;// reduce c1's(looser) population.
 
 				// transfer c1's(looser) food stock to c0(winner)
@@ -155,7 +166,9 @@ public class GameManager {
 				c0.victory++;
 				c1.loose++;
 			} else if (c0.population < c1.population) {
+
 				ratio = (float) (c1.produce() - c0.produce()) / Constants.INDEX;
+				ratio = Math.abs(ratio);
 				c0.population -= c0.population * ratio; // reduce c0's(looser) population.
 
 				// transfer c0's(looser) food stock to c1(winner)
@@ -187,7 +200,7 @@ public class GameManager {
 					// transfer c0's(looser) food stock to c1(winner)
 					c1.foodStock += c0.foodStock * ratio;
 					c0.foodStock -= c0.foodStock * ratio;
-
+					// victory-loose
 					c1.victory++;
 					c0.loose++;
 				}
@@ -196,6 +209,9 @@ public class GameManager {
 		// System.out.println(c1.fightPower() - c0.fightPower());
 		c0.reportLifeStatus();
 		c1.reportLifeStatus();
+		this.players.set(i, c0);
+		this.players.set(j, c1);
+
 		// above results: populations affected, foodstocks transfared, amIAlive updated
 	}
 
